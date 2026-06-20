@@ -1,0 +1,108 @@
+{
+  "info": {
+    "_postman_id": "madhu-spring-boot-demo",
+    "name": "Madhu Spring Boot Demo",
+    "description": "Minimal REST API — health check and users CRUD.\n\nStart the app first: `mvn spring-boot:run` (server on port 8080).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "userId",
+      "value": "123"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "GET /health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/health",
+            "description": "Returns `{ \"status\": \"ok\" }` when the server is up."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "GET /users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/users",
+            "description": "List all users."
+          },
+          "response": []
+        },
+        {
+          "name": "GET /users/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/users/{{userId}}",
+            "description": "Get one user by id. User 123 is seeded on startup."
+          },
+          "response": []
+        },
+        {
+          "name": "POST /users",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Bob\",\n  \"age\": 25,\n  \"active\": false\n}"
+            },
+            "url": "{{baseUrl}}/users",
+            "description": "Create a user. Id is assigned automatically (do not send `id` in the body)."
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /users/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alice\",\n  \"age\": 31,\n  \"active\": true\n}"
+            },
+            "url": "{{baseUrl}}/users/{{userId}}",
+            "description": "Replace an existing user. Returns 404 if the id does not exist."
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /users/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/users/{{userId}}",
+            "description": "Delete a user. Returns 204 No Content on success, 404 if not found."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
