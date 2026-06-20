@@ -1,0 +1,13 @@
+# Maven build output (like Node's dist/ or build/)
+target/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

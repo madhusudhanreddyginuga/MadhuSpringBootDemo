@@ -15,7 +15,7 @@
     <artifactId>MadhuSpringBootDemo</artifactId>
     <version>1.0.0</version>
     <name>MadhuSpringBootDemo</name>
-    <description>Demo Spring Boot 3 application for Madhu Portal</description>
+    <description>Minimal Spring Boot 3 REST API demo</description>
 
     <!-- Java 17 configuration -->
     <properties>
